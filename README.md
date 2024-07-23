@@ -37,7 +37,7 @@ The workshop focuses on the physical design of a macro CPU core called picorv32a
 - They provide a level of abstraction that allows designers to focus on higher-level design hiding the internal information.
 
 ### Macros 
-- Components which are reusable components and classified into three main categories soft macro, firm macro and hard macro.
+- Components that are reusable and classified into three main categories soft macro, firm macro and hard macro.
 - Soft Macro: Synthesizable, flexible and editable
 - Firm Macro: Have a Netlist Format, portable and have predictive PPA. 
 - Hard Macro: Same as Foundry IPs and have optimized PPA and timing

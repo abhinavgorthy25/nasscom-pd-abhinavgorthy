@@ -350,11 +350,13 @@ CMOS is called as Complementary Metal Oxide semiconductor, and it is most widely
 Generation of Spice Model from Magic Layout 
 It includes design rules (tech LEF) and abstract information about the cells.
 Layout Designer converts the layout to LEF format to avoid the disclosure of logic inside the standard cell and make is easy for the physical design engineers.
-In the tkcon window we need to convert the layout to spice file 
+In the tkcon window we need to convert the layout to spice file
+``` bash 
 extract all
 ext2spice cthresh 0 rthresh 0 
-ext2spice
-cthreshold 0 and rthresh 0 ensure that the RC values are zero.
+ext2spice cthreshold 0 and rthresh 0
+```
+Ensure that the RC values are zero.
 Modify the existing spice to this: 
 ``` bash 
 * SPICE3 file created from sky130_inv.ext - technology: sky130A

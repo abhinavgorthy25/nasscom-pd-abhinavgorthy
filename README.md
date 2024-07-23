@@ -348,8 +348,6 @@ CMOS is called as Complementary Metal Oxide semiconductor, and it is most widely
 - Passivation Layer Deposition
 - Final Testing and Packaging
 #### Generation of Spice Model from Magic Layout 
-It includes design rules (tech LEF) and abstract information about the cells.
-Layout Designer converts the layout to LEF format to avoid the disclosure of logic inside the standard cell and make is easy for the physical design engineers.
 In the tkcon window we need to convert the layout to spice file
 ``` bash 
 extract all
@@ -445,7 +443,9 @@ DRC ERROR COUNT = 45
 ## Day 4: Timing Analysis and Clock Tree Synthesis (CTS)
 
 ### LEF EXTRACTION : 
-Tracks and Trunks: The horizontals and vertical lines or paths on which a metal layer is drawn for routing. Width and Height of standard cell are defined in lambda units of Horizontal track pitch and Vertical trunk pitch. 
+Tracks and Trunks: The horizontals and vertical lines or paths on which a metal layer is drawn for routing. Width and Height of standard cell are defined in lambda units of Horizontal track pitch and Vertical trunk pitch.  
+Layout Designer converts the layout to LEF format to avoid the disclosure of logic inside the standard cell and make is easy for the physical design engineers.
+It includes design rules (tech LEF) and abstract information about the cells.
 - Adjusting Grid (Lamda): 
 ``` bash 
 grid 0.46um 0.34um 0.23um 0.17um

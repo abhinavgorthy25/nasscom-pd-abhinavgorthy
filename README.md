@@ -151,6 +151,8 @@ cp -r * ../
  https://web02.gonzaga.edu/faculty/talarico/vlsi/openpdk.html
  ``` 
 - Make sure you install magic, ngspice and other required tools directly using sudo apt install <tool_name> and run its corresponding make file or  gcc file.
+- Make sure you copy the design file picorv32a into your Openlane/designs directory.
+-  Copy The default config.tcl and then use config.tcl file from post_config.tcl folder when required.
 
 ### Lab Exercise: 
 - Steps to run synthesis in OpenLane Interactive mode:
@@ -162,6 +164,7 @@ package require openlane 0.9
 prep -design picorv32a
 run_synthesis
 ```
+
 #### Synthesis Run on Openlane 
 
 <img width="1470" alt="Synthesis run on Open Lane interactive" src="https://github.com/user-attachments/assets/3a9b8c61-eeb8-4185-b753-6311c88ada6e">

@@ -2,10 +2,10 @@
 # NASSCOM Digital VLSI SoC Design and Planning 
 
 
-I discovered this workshop on LinkedIn through Kunal Ghosh. It’s a two-week course on Digital SoC and Physical Design using Open Lane, a platform that employs open-source tools to create digital designs from RTL to GDSII. The workshop utilizes the SkyWater 130 open-source PDK.
+I discovered this workshop on LinkedIn through Kunal Ghosh. It’s a two-week Digital SoC and Physical Design course using Open Lane, a platform that employs open-source tools to create digital designs from RTL to GDSII. The workshop utilizes the SkyWater 130 open-source PDK.
 
 ## Aim of the Workshop 
-The workshop focuses on the physical design of a macro CPU core called picorv32a, which is part of the VSD Squadron developed by VLSI System Design (VSD). This development board, based on the RISC-V architecture, is similar to Arduino Uno boards and suitable for applications in home automation, IoT, and more.
+The workshop focuses on the physical design of a macro CPU core called picorv32a, a part of the VSD Squadron developed by VLSI System Design (VSD). Based on the RISC-V architecture, this development board is similar to Arduino Uno boards and suitable for home automation, IoT, and more applications.
 
 ### Image of VSDSQUADRON (Source: VLSI System Design)
 
@@ -27,20 +27,20 @@ The workshop focuses on the physical design of a macro CPU core called picorv32a
 
 ### SOC: System on Chip 
 
-- SoC is an Integrated Circuit that consists of all the key components like Memory, Logic, Cache on a single IC which decreases the system area and improves the area and power.
-- Architecture is crucial for a SoC or any other ASIC. Most of the SOCs follow ARM architecture while the traditional computers follow x86 and x64 architecture which are proprietary, and licenses are required to purchase them. In this workshop we focused on an open-source ISA (Instruction Set Architecture) called RISC -V which was developed by UC Berkeley in 2010 and became famous among the researchers as an industry expert. It is one of the fastest-growing ecosystems and uses smaller instruction set for better computation and efficiency in terms of Performance, Power, and Area.
+- SoC is an Integrated Circuit consisting of all the key components like Memory, Logic, and Cache on a single IC, decreasing the system area and improving the area and power.
+- Architecture is crucial for a SoC or any other ASIC. Most of the SOCs follow ARM architecture while the traditional computers follow x86 and x64 architecture which are proprietary, and licenses are required to purchase them. In this workshop we focused on an open-source ISA (Instruction Set Architecture) called RISC -V which was developed by UC Berkeley in 2010 and became famous among the researchers as an industry expert. It is one of the fastest-growing ecosystems and uses smaller instruction sets for better computation and efficiency in terms of Performance, Power, and Area.
 
 ### Foundry Intellectual Property (IPs):
 
-- Few of the components in an SoC needs some assistance and constant interaction with the semiconductor fabrication unit or foundry and those are termed as Foundry IPS (Example: SRAM, PLL, ADC and DAC)
+- Few of the components in an SoC need some assistance and constant interaction with the semiconductor fabrication unit or foundry and those are termed as Foundry IPS (Example: SRAM, PLL, ADC, and DAC)
 - IPs can be licensed from IP vendors or developed in-house (Example: Micron -DRAM)
 - They provide a level of abstraction that allows designers to focus on higher-level design hiding the internal information.
 
 ### Macros 
-- Components that are reusable and classified into three main categories soft macro, firm macro and hard macro.
+- Components that are reusable and classified into three main categories soft macro, firm macro, and hard macro.
 - Soft Macro: Synthesizable, flexible and editable
-- Firm Macro: Have a Netlist Format, portable and have predictive PPA. 
-- Hard Macro: Same as Foundry IPs and have optimized PPA and timing
+- Firm Macro: Have a Netlist Format, portable, and have predictive PPA. 
+- Hard Macro: Same as Foundry IPs and has optimized PPA and timing
 #### Chip Design 
 ![Picture 4 png](https://github.com/user-attachments/assets/f7b460e2-7551-4f18-b9d4-83a0dc64130e)
 
@@ -53,11 +53,11 @@ All the applications interact with the ICs and perform tasks as per the user req
 - Process and Memory Management
 - Interrupt Handling 
  #### 2) Compiler (Gcc, Clang) 
-- Converts the high-level language into an executable file in assembly -level instructions and later sent to an Assembler.
+- Converts the high-level language into an executable file in assembly-level instructions and later sent to an Assembler.
 -  Different architectures have their own instruction sets, and the compiler ensures that the instructions generated are compatible with the targeted architecture.
 
 #### 3) Assembler
-- It converts the assembly level language into binary code, which is a sequence of 0s and 1s that can be directly dumped into the hardware.
+- It converts the assembly-level language into binary code, which is a sequence of 0s and 1s that can be directly dumped into the hardware.
 - Hardware Descriptive Languages like (Verilog, VHDL) also interact with assembler
   
 ![Picture 5 ](https://github.com/user-attachments/assets/a82ba663-45b4-40af-952e-ff4585da4e79)
@@ -66,20 +66,20 @@ All the applications interact with the ICs and perform tasks as per the user req
 #### Three pillars of ASIC DESIGN 
   ![Picture 6 ](https://github.com/user-attachments/assets/5ee5a992-4b8e-43e0-889f-5da4215429a7)
 
-#### 1)  RTL Design: Register Transfer Level refer to pre-designed and pre-verified digital hardware components or blocks that are described at the Register Transfer Level (RTL). It is an HDL representation of a digital circuit or a portion of a circuit. 
-#### 2)  EDA tools: Electronic Design Automation Tools are software applications which are used in design, simulation, analysis, automate the process of chip making which increase efficiency and reduce time-to-market aspects.
-#### PDKs : Process Design Kits are set of files which are basically model files provided by the foundry that abides all the rules of fabrication and used by the circuit designers to develop an analog, digital and mixed signal designs. It acts a bridge between the semiconductor fabrication engineers and circuit designers. 
+#### 1)  RTL Design: Register Transfer Level refers to pre-designed and pre-verified digital hardware components or blocks that are described at the Register Transfer Level (RTL). It is an HDL representation of a digital circuit or a portion of a circuit. 
+#### 2)  EDA tools: Electronic Design Automation Tools are software applications that are used in design, simulation, analysis, automate the process of chip-making which increases efficiency and reduces time-to-market aspects.
+#### PDKs: Process Design Kits are a set of files which are model files provided by the foundry that abide by all the rules of fabrication and are used by the circuit designers to develop analog, digital and mixed-signal designs. It acts as a bridge between semiconductor fabrication engineers and circuit designers. 
 
-These three can have limited access and most of them have licenses. However, there are many designs, tools and pdks that are open source, and we will be using these open-source tools and files to generate a cpu core. 
+These three can have limited access and most of them have licenses. However, many designs, tools, and pdks are open-source, and we will be using these open-source tools and files to generate a cpu core. 
 
 ### OPENLANE EDA Tools (RTL to GDSII)  
- OpenLane is an automated RTL to GDSII flow based on several tools. It provides a number of custom scripts for design exploration and optimization. The flow performs all ASIC implementation steps from RTL all the way down to GDSII. Currently, it supports both A and B variants of the sky130 PDK, the C variant of the gf180mcu PDK.
+ OpenLane is an automated RTL to GDSII flow based on several tools. It provides several custom scripts for design exploration and optimization. The flow performs all ASIC implementation steps from RTL all the way down to GDSII. Currently, it supports both the A and B variants of the sky130 PDK, and the C variant of the gf180mcu PDK.
 
-Github Repo
+GitHub Repo
 ``` bash 
  https://github.com/The-OpenROAD-Project/OpenLane
  ```
-The advantage of OpenLane is it is user friendly, and we can modify the behavior of the circuit with a single configuration file. 
+The advantage of OpenLane is it is user-friendly, and we can modify the behavior of the circuit with a single configuration file. 
 
 #### OpenLane Architecture 
 
@@ -90,23 +90,23 @@ The advantage of OpenLane is it is user friendly, and we can modify the behavior
 |-------|---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
 | 1     | RTL Design                | The functional behavior of the digital circuits is described using a hardware description language (HDL) like VHDL or Verilog.                        | EDA playground                                                                                    |
 | 2     | RTL Synthesis             | Converts the high-level RTL description into a gate-level netlist. This stage involves mapping the RTL code to a library of standard cells and optimizing the resulting gate-level representation for area, power, and timing. | yosys/abc - Perform RTL synthesis and technology mapping.                                        |
-| 3     | Floor Planning            | Decides chip's die, core and IO pads area and determining the placement of preplaced cells.                                                           | 1. init_fp - Defines the core area for the macro as well as the rows. <br> 2. ioplace - Places the macro input and output ports <br> 3. tapcell - Inserts welltap and decap cells in the floorplan                                     |
+| 3     | Floor Planning            | Decides chip's die, core and IO pad area and determines the placement of preplaced cells.                                                           | 1. init_fp - Defines the core area for the macro as well as the rows. <br> 2. ioplace - Places the macro input and output ports <br> 3. tapcell - Inserts welltap and decap cells in the floorplan                                     |
 | 4     | Power Planning            | Distribution of Vdd and Vss to all the components in the core.                                                                                        | pdngen - Generates Power Distribution Network                                                     |
-| 5     | Placement                 | Assigning the physical coordinates to each gate-level cell on the chip's layout while minimizing wirelength, optimizing signal delay, and satisfy design rules and constraints.            | 1. RePlace - Performs global placement. <br> 2. Resizer - Performs optional optimizations on the design. <br> 3. OpenDP - Performs detailed placement to legalize the globally placed components <br> 4. Magic Layout - To check the layout                                                             |
+| 5     | Placement                 | Assigning the physical coordinates to each gate-level cell on the chip's layout while minimizing wire length, optimizing signal delay, and satisfying design rules and constraints.            | 1. RePlace - Performs global placement. <br> 2. Resizer - Performs optional optimizations on the design. <br> 3. OpenDP - Performs detailed placement to legalize the globally placed components <br> 4. Magic Layout - To check the layout                                                             |
 | 6     | Clock Tree Synthesis      | Constructing an optimized clock distribution network within an integrated circuit (IC) minimizing clock skew and achieving timing closure.            | TritonCTS - Synthesizes the clock distribution network (the clock tree)                           |
 | 7     | Routing                   | Connects the gates and interconnects on the chip based on the placement information avoiding congestion.                                              | 1. FastRoute - Performs global routing. <br> 2. TritonRoute - Performs detailed routing                                                        |
-| 8     | Static Timing Analysis    | Checks the timing constraints and perform setup, hold analysis.                                                                                       | OpenSTA - Performs static timing analysis on the resulting netlist to generate timing reports     |
+| 8     | Static Timing Analysis    | Checks the timing constraints and performs setup, and hold analysis.                                                                                       | OpenSTA - Performs static timing analysis on the resulting netlist to generate timing reports     |
 | 9     | Sign-off                  | Series of checks and simulations to confirm that the design is ready for fabrication and obtain desired functionality and PPA.                        | 1. Magic - Performs DRC Checks & Antenna Checks <br> 2. KLayout - Performs DRC Checks <br> 3. Netgen - Performs LVS Checks <br> 4. CVC - Performs Circuit Validity Checks                                                         |
 | 10    | GDS II                    | Graphical Data Stream (Structure) represents the complete physical layout of the chip that contains the geometric information necessary for fabrication, including the shapes, layers, masks, and other relevant details. | Magic - Generates .cif file for fabrication                                        |
 
                                                 
 Installation of Linux on MacOS (Apple Silicon) 
-- Oracle Virtual Box is not compatible with the latest apple silicon chips of Apple (M Series) and thus I used UTM for MacOS to install Ubuntu.
+- Oracle Virtual Box is not compatible with the latest Apple silicon chips of Apple (M Series) and thus I used UTM for MacOS to install Ubuntu.
 - I followed the video to install the Ubuntu: 
 ``` bash  
 https://youtu.be/O19mv1pe76M?feature=shared
 ``` 
-- To install openlane I followed the instructions mentioned in the git hub repo 
+- To install Openlane I followed the instructions mentioned in the git hub repo 
 
 ```bash
   https://github.com/AnupriyaKrishnamoorthy/NASSCOM-PD-ANU. 
@@ -117,7 +117,7 @@ sudo apt-get update
 sudo apt-get upgrade
 sudo apt install -y build-essential python3 python3-venv python3-pip make git
 ``` 
-- In order to interact with OpenLane Docker has to be installed and for that run the following commands :
+- To interact with OpenLane Docker has to be installed and for that run the following commands :
 ``` bash 
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
@@ -190,26 +190,26 @@ vim picorv32a.v
 ### Floor Planning and Power Planning Key Concepts: 
 ##### Defining the width and height of the cell
 
-- 	Die Area: A small square area on which chip is fabricated that of consists core area and IO pads.
-- Core Area: Main area where standard cells, macros/IPs are placed. 
+- 	Die Area: A small square area on which the chip is fabricated that of consists core area and IO pads.
+- Core Area: The main area where standard cells, macros/IPs are placed. 
 - 	Core Utilization Factor: (Area Occupied by Netlist / Total Area of the core)
 - Aspect Ratio: Height/ Width of the Core.
 ####  Defining locations of Pre-placed Cells
- -  The pre-placed cells are typically IPs that have defined before automated PnR (Place and Route)
-- 	Circuit Bipartitioning occurs and organized into blocks/modules and placed along with the pre-placed cells. 
+ -  The pre-placed cells are typically IPs that have been defined before automated PnR (Place and Route)
+- 	Circuit Bipartitioning occurs and is organized into blocks/modules and placed along with the pre-placed cells. 
   ####  Surround the pre-placed cells with decoupling capacitors.
-- Decoupling capacitors are large capacitors that store electrical charge They act as reservoirs can send same voltage as power supply to the circuit for a period. 
-- Some pre-placed cells reside far away from the Power supply and toa void  IR drop De Caps are used. 
+- Decoupling capacitors are large capacitors that store electrical charge They act as reservoirs and can send the same voltage as the power supply to the circuit for a period. 
+- Some pre-placed cells reside far away from the Power supply and to void  IR drop De Caps are used. 
 #### Power Planning: 
 
--	Its aim is to supply power evenly to all the circuits and the plan the distribution of power and ground connections to ensure proper functionality and performance of the chip. 
--  Due to the internal parasitics, hazards (Harmful Glitches) like voltage droop and ground bounce occurs when there are variations in the voltage levels of different GND points due to transient currents. 
-- Mesh Distribution Startegy is usually preferred in power planning.
+-	It aims to supply power evenly to all the circuits and plan the distribution of power and ground connections to ensure proper functionality and performance of the chip. 
+-  Due to internal parasitics, hazards (Harmful Glitches) like voltage droop and ground bounce occur when there are variations in the voltage levels of different GND points due to transient currents. 
+- Mesh Distribution strategy is usually preferred in power planning.
 ##### Pin Placement :
 - Proper Pins must be allocated according to the floor planning in such a way that the input and output signals are strong with equal power distribution to all the cells along with standard packaging aspects.
 - Create a blockage ring in between the core and IO pads to avoid crosstalk.
  Placement
-- After all these, Placement is performed based on algorithms that minimize wirelength. 
+- After all these, Placement is performed based on algorithms that minimize wire length. 
 
  ### Lab Exercise: 
 A simple command is required to perform the floorplanning 
@@ -233,7 +233,7 @@ $ magic -T sky130A.tech lef read ../../tmp/merged.nom.lef def read picorv32a.def
 
 
 - Many commands are used in the magic tkcon command window 
-- Once such example is selecting the area of the required portion and typing what and in this case, it shows two different metal layers that are used in the floorplanning.
+- One such example is selecting the area of the required portion and typing what and in this case, it shows two different metal layers that are used in the floorplanning.
   
 <img width="1406" alt="14" src="https://github.com/user-attachments/assets/21e6730d-aafd-48a9-ab3a-89c7949bb12c">
 
@@ -253,7 +253,7 @@ $ magic -T sky130A.tech lef read ../../tmp/merged.nom.lef def read picorv32a.def
 <img width="1401" alt="16" src="https://github.com/user-attachments/assets/82f0ccf6-3fa5-4f14-be71-963102e25183">
 
 
-- Inorder to insert a custom cell design into the existing flow we need to install the following package 
+- To insert a custom cell design into the existing flow we need to install the following package 
 ``` bash 
 git clone https://github.com/nickson-jose/vsdstdcelldesign.git
 ```
@@ -263,7 +263,7 @@ git clone https://github.com/nickson-jose/vsdstdcelldesign.git
  ``` 
  ### Cell Design and Characterization Flow 
 
-Library is a file where all the information of a different cells.
+A library is a file where all the information of a different cells.
 
 Cell Design Flow Key Concepts for EDA tools: 
 
@@ -274,7 +274,7 @@ Inputs:
 Design Steps and Outputs 
 -	Circuit design 
 -	 Layout design & characterization: Using Euler’s path and stick diagram (LEF output)
-- Extraction of parasitics, extraction of spice netlist (GDS II, .cir , .lib  output files)
+- Extraction of parasitics, extraction of spice netlist (GDS II, .cir, .lib  output files)
 
 Standard Cell Characterization Flow Key Concepts for Spice Deck:
 - Read the models and tech file that have parameters, equations (device physics) 
@@ -284,9 +284,9 @@ Standard Cell Characterization Flow Key Concepts for Spice Deck:
 - Attach the required power supply and name the nodes.
 - 	Apply inputs (PULSE, PWL).
 -	Apply Capacitive Load.
-- Provide neccesary simulation commands in Spice Deck (.tran . dc) 
+- Provide necessary simulation commands in Spice Deck (.tran . dc) 
 
-After all these 8 steps, the information is sent to a Software called GUNA and generates the timing, noise power models for these files. We characterize Timing,Power and noise.
+After all these 8 steps, the information is sent to a Software called GUNA which generates the timing, and noise power models for these files. We characterize Timing, Power and noise.
 
 ![Picture17png](https://github.com/user-attachments/assets/aee2da03-1ef7-42bf-92b4-97d61cc5416d) 
 
@@ -300,7 +300,7 @@ After all these 8 steps, the information is sent to a Software called GUNA and g
 
 ## Day 3: Design Library Cell Using Magic Layout and ngspice characterization.
 
-IO placer: Even after running the placement we can change the parameters and observe the places.I observed that the change in the ports when I changed the value of IO placer which is not equidistant from each other as in the previous case.
+IO placer: Even after running the placement we can change the parameters and observe the places. I observed the change in the ports when I changed the value of the IO placer which is not equidistant from each other as in the previous case.
 
 - Spice Deck Order, Syntax and Semantics:
 
@@ -309,13 +309,13 @@ IO placer: Even after running the placement we can change the parameters and obs
 
 
 #### CMOS Inverter Robustness Checks for Spice Deck:
-We can change the load capacitance, width of pmos and nmos and compare the results. 
-- One of the important parameters is the Switching Threshold (Vm) a point at which Vin = Vout and when both are in Saturation region.
+We can change the load capacitance, and width of pmos and nmos and compare the results. 
+- One of the important parameters is the Switching Threshold (Vm) a point at which Vin = Vout and when both are in the Saturation region.
 
 <img width="1337" alt="19" src="https://github.com/user-attachments/assets/376f5f9d-ce64-4520-ae57-fc58822a34a8">
 
 ### Lab exercise: 
-Inorder to get the inverter (Custom) files we need to clone a repository.
+In order to get the inverter (Custom) files we need to clone a repository.
 ``` bash 
 git clone https://github.com/nickson-jose/vsdstdcelldesign.git
 ``` 
@@ -330,7 +330,7 @@ magic -T ./libs/sky130A.tech sky130_inv.mag &
 <img width="1401" alt="20" src="https://github.com/user-attachments/assets/80e40535-4195-4862-9635-8de57af19513">
 
 
-CMOS is called as Complementary Metal Oxide semiconductor, and it is most widely used technology in digital ICs and it is fabricated using 16 steps.
+CMOS is called a Complementary Metal Oxide semiconductor, and it is the most widely used technology in digital ICs and is fabricated using 16 steps.
 -  Substrate Preparation
 -  N-Well Formation
 -  P-Well Formation
@@ -443,8 +443,8 @@ DRC ERROR COUNT = 45
 ## Day 4: Timing Analysis and Clock Tree Synthesis (CTS)
 
 ### LEF EXTRACTION : 
-Tracks and Trunks: The horizontals and vertical lines or paths on which a metal layer is drawn for routing. Width and Height of standard cell are defined in lambda units of Horizontal track pitch and Vertical trunk pitch.  
-Layout Designer converts the layout to LEF format to avoid the disclosure of logic inside the standard cell and make is easy for the physical design engineers.
+Tracks and Trunks: The horizontal and vertical lines or paths on which a metal layer is drawn for routing. The width and Height of the standard cell are defined in lambda units of Horizontal track pitch and Vertical trunk pitch.  
+Layout Designer converts the layout to LEF format to avoid the disclosure of logic inside the standard cell and make it easy for the physical design engineers.
 It includes design rules (tech LEF) and abstract information about the cells.
 - Adjusting Grid (Lamda): 
 ``` bash 
@@ -493,7 +493,7 @@ set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
 add_lefs -src $lefs
 run_synthesis
 ```
-#### After Running synthesis
+#### After Running the synthesis
 
 <img width="1184" alt="imp_run 3" src="https://github.com/user-attachments/assets/8bb2bed5-6162-4d56-8985-986edb5d43ff">
 
@@ -501,7 +501,7 @@ run_synthesis
 #### STA log 
 <img width="1071" alt="STA log" src="https://github.com/user-attachments/assets/94dfd938-ca26-482e-bd35-9f111d3e5703">
 
-Run_floorplan : If error occurs use step by step approach instead of run_floorplan
+Run_floorplan: If an error occurs use step by step approach instead of run_floorplan
 ``` bash 
 % init_floorplan
 % place_io
@@ -513,10 +513,10 @@ Run_floorplan : If error occurs use step by step approach instead of run_floorpl
 
 ![power aware CTS ](https://github.com/user-attachments/assets/744d064e-558f-40cd-8659-202fc904c6ac)
 
-- In CTS, Using H tree Algorithm Repeaters/buffers are used to make that the skew is minimized.
+- In CTS, H tree Algorithm Repeaters/buffers are used to make sure that the skew is minimized.
 - Delay of cells mostly depends on input transition and output load. 
-- During CTS, different input slew and output load are organized in a delay table with different buffer sizes. 
-- The tool uses some equations and ensures same load at each node by replacing different buffers with different input slew
+- During CTS, different input slew and output loads are organized in a delay table with different buffer sizes. 
+- The tool uses some equations and ensures the same load at each node by replacing different buffers with different input slew
 
 Placement after sky130_vsdinv
 ``` bash 
@@ -535,11 +535,11 @@ The above placement consists of 145 sky130_vsdinv cells.
 ![Picture 40 png](https://github.com/user-attachments/assets/5568226c-dfe2-4173-8071-99c87fb8c066)
 
 
-- Library Setup time (S) : Time it takes for MUX 1 to pass to the center of the capture flop.
-- Setup Uncertainity (SU) : This occurs due to Clock Jitter (Clock may arrive a bit late/early)
+- Library Setup time (S): Time it takes for MUX 1 to pass to the center of the capture flop.
+- Setup Uncertainty (SU): This occurs due to Clock Jitter (Clock may arrive a bit late/early)
   
-- Hold time: Minimum amount of time required for the data to be stable after the active edge of the clock to get properly captured. It takes time for capture flop to send data from center of the flip flop through MUX 2 to the next cell/flop.
-- Hold slack: Data Arrival  Time - Data Required Time
+- Hold time: Minimum amount of time required for the data to be stable after the active edge of the clock to get properly captured. It takes time for the capture flop to send data from the center of the flip flop through MUX 2 to the next cell/flop.
+- Hold Slack: Data Arrival  Time - Data Required Time
 -  Hold Timing Analysis with Ideal Clocks:
 ![Picture41 ](https://github.com/user-attachments/assets/89a50334-256b-4833-8a48-ccc8dfed65d7)
 
@@ -574,9 +574,9 @@ Slack Violation after many attempts of changing  cells and strategies :
 
 Clock Tree Synthesis Key Concepts: 
 
--	CTS is an important step that ensures that all the cells reaches the clock at almost same time.
--	It has some quality checks like slew, pulse width, latency, duty cycle, signal integrity and so on. Using algorithms like H-tree which is particularly effective for distributing clock signals across large chip areas. The hierarchical structure can help reduce clock skew and optimize power consumption.
-- Crosstalk: Crosstalk is one of the biggest problems especially at lower nodes due to the high integration density of components on a chip. Since clock is the important part for the whole circuitry it is important to shield it and protect it from glitches and hazards.
+-	CTS is an important step that ensures that all the cells reach the clock at almost the same time.
+-	It has some quality checks like slew, pulse width, latency, duty cycle, signal integrity, and so on. Using algorithms like H-tree which is particularly effective for distributing clock signals across large chip areas. The hierarchical structure can help reduce clock skew and optimize power consumption.
+- Crosstalk: Crosstalk is one of the biggest problems especially at lower nodes due to the high integration density of components on a chip. Since the clock is an important part of the whole circuitry it is important to shield it and protect it from glitches and hazards.
 
 ### Lab exercise 
 CTS RUN:
@@ -608,8 +608,8 @@ Setup Slack Met:
 
 ## Day 5: Final steps for RTL 2 GDSII using TritonRoute
 ### Routing Key Concepts: 
-- Routing follows various algorithms and one among them is Lee Maze Algorithm that starts propagating like a wave and reaches the target and then back tracing is performed where a metal layer is routed from one point to another and then it acts like a blockage to the next routing step.
-- 	The Triton Route uses MILP (Mixed Integer Linear Programming : Panel Routing Concept) consists of two distinct routes, Fast Route – only between two layers and Detailed Route – intra layers.
+- Routing follows various algorithms and one among them is the Lee Maze Algorithm that starts propagating like a wave and reaches the target and then back tracing is performed where a metal layer is routed from one point to another and then it acts like a blockage to the next routing step.
+- 	The Triton Route uses MILP (Mixed Integer Linear Programming: Panel Routing Concept) and consists of two distinct routes, Fast Route – only between two layers and Detailed Route – intra layers.
 
 - Power Distribution Network 
 Run the following command 
@@ -617,9 +617,9 @@ Run the following command
 gen_pdn
 ``` 
 ### Routing 
-For routing these are the following files 
-Inputs : LEF, DEF, Preprocessed route guides
-Output : Detailed routing solution with optimized wire length and via count ( observed in MAGIC layout) 
+For routing, these are the following files 
+Inputs: LEF, DEF, Preprocessed route guides
+Output: Detailed routing solution with optimized wire length and via count ( observed in MAGIC layout) 
 ``` bash
 run_routing 
  ```
@@ -644,7 +644,7 @@ Summary of Entire Flow:
  
 ##  Acknowledgements
 
-I would like to thank Mr. Kunal Ghosh for sharing this workshop and I would like extend thanks to the Github OpenLane community.
+I would like to thank Mr. Kunal Ghosh for sharing this workshop and I would like to extend thanks to the GitHub OpenLane community.
 
 ## References 
  - [https://github.com/The-OpenROAD-Project/OpenLane](https://github.com/The-OpenROAD-Project/OpenLane)

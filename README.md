@@ -347,7 +347,7 @@ CMOS is called as Complementary Metal Oxide semiconductor, and it is most widely
 - Metal Masking and Etching
 - Passivation Layer Deposition
 - Final Testing and Packaging
-Generation of Spice Model from Magic Layout 
+#### Generation of Spice Model from Magic Layout 
 It includes design rules (tech LEF) and abstract information about the cells.
 Layout Designer converts the layout to LEF format to avoid the disclosure of logic inside the standard cell and make is easy for the physical design engineers.
 In the tkcon window we need to convert the layout to spice file

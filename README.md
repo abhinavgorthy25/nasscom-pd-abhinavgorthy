@@ -9,16 +9,15 @@ The workshop focuses on the physical design of a macro CPU core called picorv32a
 
 ### Image of VSDSQUADRON Mini (Source: VLSI System Design)
 
-![App Screenshot](Sythesis Run 2.png)
-
+![Picture1 ](https://github.com/user-attachments/assets/e16f9033-f8b3-4c88-baf5-d77a0cf6b390)
 
 ### Overview of Chip Making 
 
+![Picture 2 ](https://github.com/user-attachments/assets/b38da8b1-1a39-4153-981d-af1bbc14df91)
 
 
 ### Agenda of the workshop 
-
-![App Screenshot](Sythesis Run 2.png)
+![Picture3 ](https://github.com/user-attachments/assets/97d98064-e8bb-45f5-9a49-05f3a50cd5ad)
 
 ## Day 1: Inception of open-source EDA, OpenLane and Sky130 PDK 
 
@@ -36,10 +35,12 @@ The workshop focuses on the physical design of a macro CPU core called picorv32a
 ### Macros 
 - Components which are reusable components and classified into three main categories soft macro, firm macro and hard macro.
 - Soft Macro: Synthesizable, flexible and editable
-- Firm Macro: Have a Netlist Format, portable and have predictive PPA.
+- Firm Macro: Have a Netlist Format, portable and have predictive PPA. 
 - Hard Macro: Same as Foundry IPs and have optimized PPA and timing
+#### Chip Design 
+![Picture 4 png](https://github.com/user-attachments/assets/250bc4e3-f999-44dd-aad6-c246e427f002)
 
-### Software  and Hardware Integration 
+### Software and Hardware Integration 
 
 All the applications interact with the ICs and perform tasks as per the user requirements. The system software is responsible for translating the application program into binary language, which the hardware can understand and execute. The three main layers of the system software are. 
 #### 1) Operating System (OS): MacOS, Windows, Linux
@@ -53,8 +54,12 @@ All the applications interact with the ICs and perform tasks as per the user req
 #### 3) Assembler
 - It converts the assembly level language into binary code, which is a sequence of 0s and 1s that can be directly dumped into the hardware.
 - Hardware Descriptive Languages like (Verilog, VHDL) also interact with assembler
+  
+![Picture 5 ](https://github.com/user-attachments/assets/a82ba663-45b4-40af-952e-ff4585da4e79)
 
-### Open-Source Digital ASIC Design 
+### Open-Source Digital ASIC Design
+#### Three pillars of ASIC DESIGN 
+![Picture 6 ](https://github.com/user-attachments/assets/5ee5a992-4b8e-43e0-889f-5da4215429a7)
 
 #### 1)  RTL Design: Register Transfer Level refer to pre-designed and pre-verified digital hardware components or blocks that are described at the Register Transfer Level (RTL). It is an HDL representation of a digital circuit or a portion of a circuit. 
 #### 2)  EDA tools: Electronic Design Automation Tools are software applications which are used in design, simulation, analysis, automate the process of chip making which increase efficiency and reduce time-to-market aspects.
@@ -70,6 +75,10 @@ Github Repo
  https://github.com/The-OpenROAD-Project/OpenLane
  ```
 The advantage of OpenLane is it is user friendly, and we can modify the behavior of the circuit with a single configuration file. 
+
+#### OpenLane Architecture 
+
+![Picture 7 ](https://github.com/user-attachments/assets/27336e5d-8303-4cf8-b788-c986cf2ffef3)
 
 Installation of Linux on MacOS (Apple Silicon) 
 - Oracle Virtual Box is not compatible with the latest apple silicon chips of Apple (M Series) and thus I used UTM for MacOS to install Ubuntu.
@@ -133,6 +142,9 @@ package require openlane 0.9
 prep -design picorv32a
 run_synthesis
 ```
+#### Synthesis Run on Openlane 
+![Picture 8 ](https://github.com/user-attachments/assets/2348cc28-f9eb-44f2-b9c4-b506e4f16d6d)
+
 - To view the netlist, go to the runs and look into the results of the latest run that you performed. 
 A sample command is shown here : 
 ``` bash 
@@ -140,8 +152,11 @@ cd /home/OpenLane/designs/picorv32a/runs/RUN_1/results/synthesis
 vim picorv32a.v
 ``` 
 - Reports can be viewed in the reports folder.
- - AREA_0 Report:  
- - Synthesized Verilog file: 
+ - AREA_0 Report:
+    <img width="314" alt="Picture9" src="https://github.com/user-attachments/assets/fe70d03c-2c55-4c03-beef-d66847fa5689">
+
+ - Synthesized Verilog file:
+   <img width="391" alt="Picture10" src="https://github.com/user-attachments/assets/cc0cf4cc-248e-497b-a6d8-a56099637239">
 
 ## Day 2: Good Floorplan Vs Bad Floorplan and Introduction to Library Cells
 
@@ -174,25 +189,39 @@ A simple command is required to perform the floorplanning
  ``` bash 
 run_floorplan
  ```
+<img width="332" alt="Picture11" src="https://github.com/user-attachments/assets/81fe44e3-66c5-4f2b-879e-b6916f9742ec">
 Floor Planning DEF File 
+
+<img width="335" alt="Picture 12 " src="https://github.com/user-attachments/assets/5e0b0a12-99b0-46ff-bc02-5b6f4e592287">
 
 - To view floorplan the following command is required. Make sure you copy the tech file (sky130A.tech) file into the existing directory or you can copy the path of the technology file. Lef (Library Exchange Format) is read to view the layout 
 ``` bash 
 $ cd /home /OpenLane/designs/picorv32a/runs/RUN_1/results/floorplan
 $ magic -T sky130A.tech lef read ../../tmp/merged.nom.lef def read picorv32a.def &
-``` 
-- There are many commands that are used in the magic tkcon command window 
+```
+<img width="287" alt="Picture 13 " src="https://github.com/user-attachments/assets/f1478382-9dc2-416b-8908-75bec62a547e">
+
+
+- Many commands are used in the magic tkcon command window 
 - Once such example is selecting the area of the required portion and typing what and in this case, it shows two different metal layers that are used in the floorplanning.
+  
+![Picture14 ](https://github.com/user-attachments/assets/d0af2c9d-1e2a-4644-9dac-fcc3357233c2)
+
 
 Run Placement :
 ``` bash 
  run_placement
  ```
+![Picture15 ](https://github.com/user-attachments/assets/75d4e284-f762-4343-b396-8aaf249c6c01)
+
+
 - To view the placement use the following commands 
  ``` bash 
  $  cd /home /OpenLane/designs/picorv32a/runs/RUN_1/results/placement
 $ magic -T sky130A.tech lef read ../../tmp/merged.nom.lef def read picorv32a.def &
 ```
+<img width="376" alt="Picture16 " src="https://github.com/user-attachments/assets/d7027868-121a-4d66-8b87-f0a5baee8652">
+
 - Inorder to insert a custom cell design into the existing flow we need to install the following package 
 ``` bash 
 git clone https://github.com/nickson-jose/vsdstdcelldesign.git
@@ -228,17 +257,23 @@ Standard Cell Characterization Flow Key Concepts for Spice Deck:
 
 After all these 8 steps, the information is sent to a Software called GUNA and generates the timing, noise power models for these files. We characterize Timing,Power and noise.
 
+![Picture17png](https://github.com/user-attachments/assets/aee2da03-1ef7-42bf-92b4-97d61cc5416d)
+
 ### Timing Characterization:  
 
 ## Day 3: Design Library Cell Using Magic Layout and ngspice characterization.
 
 IO placer: Even after running the placement we can change the parameters and observe the places.I observed that the change in the ports when I changed the value of IO placer which is not equidistant from each other as in the previous case.
 
-- Spice Deck Order, Syntax and Semantics: 
+- Spice Deck Order, Syntax and Semantics:
+  ![Picture18 ](https://github.com/user-attachments/assets/939e9403-08f3-418c-bdc7-1e39cfcbf00b)
 
-CMOS Inverter Robustness Checks for Spice Deck:
+
+#### CMOS Inverter Robustness Checks for Spice Deck:
 We can change the load capacitance, width of pmos and nmos and compare the results. 
 - One of the important parameters is the Switching Threshold (Vm) a point at which Vin = Vout and when both are in Saturation region.
+
+![Picture19](https://github.com/user-attachments/assets/f6967306-3de7-49bf-b1f8-21dde16bf45b)
 
 ### Lab exercise: 
 Inorder to get the inverter (Custom) files we need to clone a repository.
@@ -249,7 +284,10 @@ For viewing the layout
 ``` bash 
 magic -T ./libs/sky130A.tech sky130_inv.mag &
 
-``` 
+```
+#### CMOS Inverter Layout 
+<img width="335" alt="Picture 20 " src="https://github.com/user-attachments/assets/406c9a42-23fe-4f27-8575-935619f7944f">
+
 
 CMOS is called as Complementary Metal Oxide semiconductor, and it is most widely used technology in digital ICs and it is fabricated using 16 steps.
 -  Substrate Preparation
@@ -308,6 +346,10 @@ Use the following command in the Ngspice Shell:
 ``` bash 
  ngspice sky130_inv.spice 
  ``` 
+![Picture 21 ](https://github.com/user-attachments/assets/825c6ad7-6e36-45ae-8739-5c6bbf5266be)
+#### Transient Analysis
+
+![Picture 22 ](https://github.com/user-attachments/assets/f8f79837-9646-4e39-a92a-c66ba3e2c9c9)
 
 ### Lab Exercise on DRC Check: 
 The Open-source community will be updating constantly and different versions will be still under development and this exercise aim is to understand the Magic Layout DRC engine.
@@ -316,9 +358,12 @@ Download the package using the command:
 wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz
 ``` 
 -  DRC check for poly.mag
-DRC ERROR COUNT = 32  
+DRC ERROR COUNT = 32
+![Picture23](https://github.com/user-attachments/assets/267884dc-c794-421b-adf7-d679551c3582)
+
 
 - Edit the drc_tests file by adding the allpolynonres to update the design rule check  based on the Skywater 130 PDK design rules information from Open Circuit Design.
+![Picture24 ](https://github.com/user-attachments/assets/7b17f313-fb94-4e81-8b94-c1b662e92e4b)
 
 
 - Similarly include DRC line  for the npres as above: 
@@ -332,8 +377,14 @@ spacing npres allpolynonres 480 touching_illegal \
 - We can observe the increase in the DRC count which indicates that the DRC rules are correctly implemented. 
 DRC ERROR COUNT = 45
 
+<img width="468" alt="Picture25" src="https://github.com/user-attachments/assets/36824349-6e2e-4e0f-8197-28a70d60352e">
+
 - DRC Next Error for n well used in FEOL   
 - Make the following changes in the changes in the DRC tests.
+
+![Picture26](https://github.com/user-attachments/assets/283822c3-b472-45c9-8d57-8385b1a0ca43)
+![Picture27 ](https://github.com/user-attachments/assets/7ac7f5a5-f0bb-43ca-bbaa-4ba32dd65294)
+![Picture28](https://github.com/user-attachments/assets/2408db53-6ddc-46f2-8302-919fbc7476b9)
 
 Drc Errors solved 
 
@@ -345,6 +396,7 @@ Tracks and Trunks: The horizontals and vertical lines or paths on which a metal 
 ``` bash 
 grid 0.46um 0.34um 0.23um 0.17um
 ```
+
 Port Creation: 
 - Select Ports for LEF :
 

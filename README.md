@@ -5,7 +5,7 @@
 I discovered this workshop on LinkedIn through Kunal Ghosh. It’s a two-week course on Digital SoC and Physical Design using Open Lane, a platform that employs open-source tools to create digital designs from RTL to GDSII. The workshop utilizes the SkyWater 130 open-source PDK.
 
 ## Aim of the Workshop 
-The workshop focuses on the physical design of a macro CPU core called picorv32a, which is part of the VSD Squadron ICs developed by VLSI System Design (VSD). This development board, based on the RISC-V architecture, is similar to Arduino Uno boards and suitable for applications in home automation, IoT, and more.
+The workshop focuses on the physical design of a macro CPU core called picorv32a, which is part of the VSD Squadron developed by VLSI System Design (VSD). This development board, based on the RISC-V architecture, is similar to Arduino Uno boards and suitable for applications in home automation, IoT, and more.
 
 ### Image of VSDSQUADRON (Source: VLSI System Design)
 

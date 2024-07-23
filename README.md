@@ -80,6 +80,20 @@ The advantage of OpenLane is it is user friendly, and we can modify the behavior
 
 ![Picture 7 ](https://github.com/user-attachments/assets/27336e5d-8303-4cf8-b788-c986cf2ffef3)
 
+| S. No | Task                      | Purpose                                                                                                                                              | Open Source EDA Tool                                                                              |
+|-------|---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| 1     | RTL Design                | The functional behavior of the digital circuits is described using a hardware description language (HDL) like VHDL or Verilog.                        | EDA playground                                                                                    |
+| 2     | RTL Synthesis             | Converts the high-level RTL description into a gate-level netlist. This stage involves mapping the RTL code to a library of standard cells and optimizing the resulting gate-level representation for area, power, and timing. | yosys/abc - Perform RTL synthesis and technology mapping.                                        |
+| 3     | Floor Planning            | Decides chip's die, core and IO pads area and determining the placement of preplaced cells.                                                           | 1. init_fp - Defines the core area for the macro as well as the rows. <br> 2. ioplace - Places the macro input and output ports <br> 3. tapcell - Inserts welltap and decap cells in the floorplan                                     |
+| 4     | Power Planning            | Distribution of Vdd and Vss to all the components in the core.                                                                                        | pdngen - Generates Power Distribution Network                                                     |
+| 5     | Placement                 | Assigning the physical coordinates to each gate-level cell on the chip's layout while minimizing wirelength, optimizing signal delay, and satisfy design rules and constraints.            | 1. RePlace - Performs global placement. <br> 2. Resizer - Performs optional optimizations on the design. <br> 3. OpenDP - Performs detailed placement to legalize the globally placed components <br> 4. Magic Layout - To check the layout                                                             |
+| 6     | Clock Tree Synthesis      | Constructing an optimized clock distribution network within an integrated circuit (IC) minimizing clock skew and achieving timing closure.            | TritonCTS - Synthesizes the clock distribution network (the clock tree)                           |
+| 7     | Routing                   | Connects the gates and interconnects on the chip based on the placement information avoiding congestion.                                              | 1. FastRoute - Performs global routing. <br> 2. TritonRoute - Performs detailed routing                                                        |
+| 8     | Static Timing Analysis    | Checks the timing constraints and perform setup, hold analysis.                                                                                       | OpenSTA - Performs static timing analysis on the resulting netlist to generate timing reports     |
+| 9     | Sign-off                  | Series of checks and simulations to confirm that the design is ready for fabrication and obtain desired functionality and PPA.                        | 1. Magic - Performs DRC Checks & Antenna Checks <br> 2. KLayout - Performs DRC Checks <br> 3. Netgen - Performs LVS Checks <br> 4. CVC - Performs Circuit Validity Checks                                                         |
+| 10    | GDS II                    | Graphical Data Stream (Structure) represents the complete physical layout of the chip that contains the geometric information necessary for fabrication, including the shapes, layers, masks, and other relevant details. | Magic - Generates .cif file for fabrication                                        |
+
+                                                
 Installation of Linux on MacOS (Apple Silicon) 
 - Oracle Virtual Box is not compatible with the latest apple silicon chips of Apple (M Series) and thus I used UTM for MacOS to install Ubuntu.
 - I followed the video to install the Ubuntu: 
@@ -257,9 +271,15 @@ Standard Cell Characterization Flow Key Concepts for Spice Deck:
 
 After all these 8 steps, the information is sent to a Software called GUNA and generates the timing, noise power models for these files. We characterize Timing,Power and noise.
 
-![Picture17png](https://github.com/user-attachments/assets/aee2da03-1ef7-42bf-92b4-97d61cc5416d)
+![Picture17png](https://github.com/user-attachments/assets/aee2da03-1ef7-42bf-92b4-97d61cc5416d) 
 
 ### Timing Characterization:  
+| Concept          | Definition                                                                                 | Formula                                                   |
+|------------------|--------------------------------------------------------------------------------------------|------------------------------------------------------------|
+| Rise Time        | Time taken for output signal to reach from 20% of Vdd to 80% of Vdd.                        | time(slew_high_rise_thr) - time(slew_low_rise_thr)         |
+| Fall Time        | Time taken for output signal to fall from 80% of Vdd to 20% of Vdd.                         | time(slew_high_fall_thr) - time(slew_low_fall_thr)         |
+| Propagation Delay| The time difference between 50% Vdd of input and 50% Vdd of output.                         | time(out_thr) - time(in_thr)                               |
+
 
 ## Day 3: Design Library Cell Using Magic Layout and ngspice characterization.
 
@@ -350,6 +370,13 @@ Use the following command in the Ngspice Shell:
 #### Transient Analysis
 
 ![Picture 22 ](https://github.com/user-attachments/assets/f8f79837-9646-4e39-a92a-c66ba3e2c9c9)
+These are the values that I got for timing characterization 
+| Checks           | Definition                                                                                 | Values      |
+|------------------|--------------------------------------------------------------------------------------------|-------------|
+| Rise Time        | Time taken for output signal to reach from 20% of Vdd to 80% of Vdd.                        | 0.035 ns    |
+| Fall Time        | Time taken for output signal to fall from 80% of Vdd to 20% of Vdd.                         | 0.026 ns    |
+| Propagation Delay| The time difference between 50% Vdd of input and 50% Vdd of output.                         | 0.003 ns    |
+
 
 ### Lab Exercise on DRC Check: 
 The Open-source community will be updating constantly and different versions will be still under development and this exercise aim is to understand the Magic Layout DRC engine.

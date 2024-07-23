@@ -7,17 +7,21 @@ I discovered this workshop on LinkedIn through Kunal Ghosh. It’s a two-week co
 ## Aim of the Workshop 
 The workshop focuses on the physical design of a macro CPU core called picorv32a, which is part of the VSD Squadron ICs developed by VLSI System Design (VSD). This development board, based on the RISC-V architecture, is similar to Arduino Uno boards and is suitable for applications in home automation, IoT, and more.
 
-### Image of VSDSQUADRON Mini (Source: VLSI System Design)
+### Image of VSDSQUADRON (Source: VLSI System Design)
 
-![Picture1 ](https://github.com/user-attachments/assets/e16f9033-f8b3-4c88-baf5-d77a0cf6b390)
+![Key-features-1](https://github.com/user-attachments/assets/091fd613-7d83-4de1-aac2-88522fd75f3a)
+
 
 ### Overview of Chip Making 
 
-![Picture 2 ](https://github.com/user-attachments/assets/b38da8b1-1a39-4153-981d-af1bbc14df91)
+
+<img width="990" alt="2" src="https://github.com/user-attachments/assets/a68bb643-8976-4ad7-840b-d838616bcbc6">
 
 
 ### Agenda of the workshop 
-![Picture3 ](https://github.com/user-attachments/assets/97d98064-e8bb-45f5-9a49-05f3a50cd5ad)
+![3 ](https://github.com/user-attachments/assets/c8401cac-ad92-4ba0-870b-f062a96499c9)
+
+
 
 ## Day 1: Inception of open-source EDA, OpenLane and Sky130 PDK 
 
@@ -38,7 +42,8 @@ The workshop focuses on the physical design of a macro CPU core called picorv32a
 - Firm Macro: Have a Netlist Format, portable and have predictive PPA. 
 - Hard Macro: Same as Foundry IPs and have optimized PPA and timing
 #### Chip Design 
-![Picture 4 png](https://github.com/user-attachments/assets/250bc4e3-f999-44dd-aad6-c246e427f002)
+![Picture 4 png](https://github.com/user-attachments/assets/f7b460e2-7551-4f18-b9d4-83a0dc64130e)
+
 
 ### Software and Hardware Integration 
 
@@ -59,7 +64,7 @@ All the applications interact with the ICs and perform tasks as per the user req
 
 ### Open-Source Digital ASIC Design
 #### Three pillars of ASIC DESIGN 
-![Picture 6 ](https://github.com/user-attachments/assets/5ee5a992-4b8e-43e0-889f-5da4215429a7)
+  ![Picture 6 ](https://github.com/user-attachments/assets/5ee5a992-4b8e-43e0-889f-5da4215429a7)
 
 #### 1)  RTL Design: Register Transfer Level refer to pre-designed and pre-verified digital hardware components or blocks that are described at the Register Transfer Level (RTL). It is an HDL representation of a digital circuit or a portion of a circuit. 
 #### 2)  EDA tools: Electronic Design Automation Tools are software applications which are used in design, simulation, analysis, automate the process of chip making which increase efficiency and reduce time-to-market aspects.
@@ -78,7 +83,8 @@ The advantage of OpenLane is it is user friendly, and we can modify the behavior
 
 #### OpenLane Architecture 
 
-![Picture 7 ](https://github.com/user-attachments/assets/27336e5d-8303-4cf8-b788-c986cf2ffef3)
+![7](https://github.com/user-attachments/assets/106b206a-e7ec-43e2-84e2-62e680f39bf7)
+
 
 | S. No | Task                      | Purpose                                                                                                                                              | Open Source EDA Tool                                                                              |
 |-------|---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
@@ -157,7 +163,8 @@ prep -design picorv32a
 run_synthesis
 ```
 #### Synthesis Run on Openlane 
-![Picture 8 ](https://github.com/user-attachments/assets/2348cc28-f9eb-44f2-b9c4-b506e4f16d6d)
+
+<img width="1470" alt="Synthesis run on Open Lane interactive" src="https://github.com/user-attachments/assets/3a9b8c61-eeb8-4185-b753-6311c88ada6e">
 
 - To view the netlist, go to the runs and look into the results of the latest run that you performed. 
 A sample command is shown here : 
@@ -167,10 +174,13 @@ vim picorv32a.v
 ``` 
 - Reports can be viewed in the reports folder.
  - AREA_0 Report:
-    <img width="314" alt="Picture9" src="https://github.com/user-attachments/assets/fe70d03c-2c55-4c03-beef-d66847fa5689">
+
+    <img width="738" alt="Area report " src="https://github.com/user-attachments/assets/15c74fa0-15fe-4099-a0f9-6e4ea383f7fb">
 
  - Synthesized Verilog file:
-   <img width="391" alt="Picture10" src="https://github.com/user-attachments/assets/cc0cf4cc-248e-497b-a6d8-a56099637239">
+
+<img width="737" alt="Synthesized verilog file" src="https://github.com/user-attachments/assets/8d2a4181-d324-4bb5-8b4a-4fd477397dc2">
+
 
 ## Day 2: Good Floorplan Vs Bad Floorplan and Introduction to Library Cells
 
@@ -203,30 +213,33 @@ A simple command is required to perform the floorplanning
  ``` bash 
 run_floorplan
  ```
-<img width="332" alt="Picture11" src="https://github.com/user-attachments/assets/81fe44e3-66c5-4f2b-879e-b6916f9742ec">
-Floor Planning DEF File 
+<img width="738" alt="Floor Planning Run " src="https://github.com/user-attachments/assets/6d7f71c5-5e74-4800-8b61-f2c3d2225cd5">
 
-<img width="335" alt="Picture 12 " src="https://github.com/user-attachments/assets/5e0b0a12-99b0-46ff-bc02-5b6f4e592287">
+-  Floor Planning DEF file:
+
+<img width="738" alt="Floor Planning  Def file" src="https://github.com/user-attachments/assets/d5d1339a-5464-4760-a5e3-11d0a785710a">
+
 
 - To view floorplan the following command is required. Make sure you copy the tech file (sky130A.tech) file into the existing directory or you can copy the path of the technology file. Lef (Library Exchange Format) is read to view the layout 
 ``` bash 
 $ cd /home /OpenLane/designs/picorv32a/runs/RUN_1/results/floorplan
 $ magic -T sky130A.tech lef read ../../tmp/merged.nom.lef def read picorv32a.def &
 ```
-<img width="287" alt="Picture 13 " src="https://github.com/user-attachments/assets/f1478382-9dc2-416b-8908-75bec62a547e">
+
+<img width="1406" alt="13" src="https://github.com/user-attachments/assets/c63be086-d52e-4df5-9218-22c309ba569b">
 
 
 - Many commands are used in the magic tkcon command window 
 - Once such example is selecting the area of the required portion and typing what and in this case, it shows two different metal layers that are used in the floorplanning.
   
-![Picture14 ](https://github.com/user-attachments/assets/d0af2c9d-1e2a-4644-9dac-fcc3357233c2)
+<img width="1406" alt="14" src="https://github.com/user-attachments/assets/21e6730d-aafd-48a9-ab3a-89c7949bb12c">
 
 
 Run Placement :
 ``` bash 
  run_placement
  ```
-![Picture15 ](https://github.com/user-attachments/assets/75d4e284-f762-4343-b396-8aaf249c6c01)
+<img width="1394" alt="15" src="https://github.com/user-attachments/assets/aee3e0fb-341f-4782-a1d3-2954b052fd9b">
 
 
 - To view the placement use the following commands 
@@ -234,7 +247,8 @@ Run Placement :
  $  cd /home /OpenLane/designs/picorv32a/runs/RUN_1/results/placement
 $ magic -T sky130A.tech lef read ../../tmp/merged.nom.lef def read picorv32a.def &
 ```
-<img width="376" alt="Picture16 " src="https://github.com/user-attachments/assets/d7027868-121a-4d66-8b87-f0a5baee8652">
+<img width="1401" alt="16" src="https://github.com/user-attachments/assets/82f0ccf6-3fa5-4f14-be71-963102e25183">
+
 
 - Inorder to insert a custom cell design into the existing flow we need to install the following package 
 ``` bash 
@@ -286,14 +300,16 @@ After all these 8 steps, the information is sent to a Software called GUNA and g
 IO placer: Even after running the placement we can change the parameters and observe the places.I observed that the change in the ports when I changed the value of IO placer which is not equidistant from each other as in the previous case.
 
 - Spice Deck Order, Syntax and Semantics:
-  ![Picture18 ](https://github.com/user-attachments/assets/939e9403-08f3-418c-bdc7-1e39cfcbf00b)
+
+<img width="1389" alt="18" src="https://github.com/user-attachments/assets/03378646-305d-40e5-8c6e-875a0c3df969">
+
 
 
 #### CMOS Inverter Robustness Checks for Spice Deck:
 We can change the load capacitance, width of pmos and nmos and compare the results. 
 - One of the important parameters is the Switching Threshold (Vm) a point at which Vin = Vout and when both are in Saturation region.
 
-![Picture19](https://github.com/user-attachments/assets/f6967306-3de7-49bf-b1f8-21dde16bf45b)
+<img width="1337" alt="19" src="https://github.com/user-attachments/assets/376f5f9d-ce64-4520-ae57-fc58822a34a8">
 
 ### Lab exercise: 
 Inorder to get the inverter (Custom) files we need to clone a repository.
@@ -306,7 +322,9 @@ magic -T ./libs/sky130A.tech sky130_inv.mag &
 
 ```
 #### CMOS Inverter Layout 
-<img width="335" alt="Picture 20 " src="https://github.com/user-attachments/assets/406c9a42-23fe-4f27-8575-935619f7944f">
+
+
+<img width="1401" alt="20" src="https://github.com/user-attachments/assets/80e40535-4195-4862-9635-8de57af19513">
 
 
 CMOS is called as Complementary Metal Oxide semiconductor, and it is most widely used technology in digital ICs and it is fabricated using 16 steps.
@@ -364,12 +382,14 @@ run
 ``` 
 Use the following command in the Ngspice Shell:
 ``` bash 
- ngspice sky130_inv.spice 
- ``` 
-![Picture 21 ](https://github.com/user-attachments/assets/825c6ad7-6e36-45ae-8739-5c6bbf5266be)
-#### Transient Analysis
+ ngspice sky130_inv.spice
+ ```
 
-![Picture 22 ](https://github.com/user-attachments/assets/f8f79837-9646-4e39-a92a-c66ba3e2c9c9)
+<img width="1401" alt="21" src="https://github.com/user-attachments/assets/7b1592c7-0be7-4e00-9a19-11d3b413e721">
+
+#### Transient Analysis
+<img width="1401" alt="22" src="https://github.com/user-attachments/assets/6f8c8ec6-00fb-4a61-85ab-fdfc2ba5a0ef">
+
 These are the values that I got for timing characterization 
 | Checks           | Definition                                                                                 | Values      |
 |------------------|--------------------------------------------------------------------------------------------|-------------|
@@ -386,11 +406,13 @@ wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz
 ``` 
 -  DRC check for poly.mag
 DRC ERROR COUNT = 32
-![Picture23](https://github.com/user-attachments/assets/267884dc-c794-421b-adf7-d679551c3582)
+
+<img width="1390" alt="23" src="https://github.com/user-attachments/assets/1b704812-5d61-4c2a-80ee-dbfa51963aea">
 
 
 - Edit the drc_tests file by adding the allpolynonres to update the design rule check  based on the Skywater 130 PDK design rules information from Open Circuit Design.
-![Picture24 ](https://github.com/user-attachments/assets/7b17f313-fb94-4e81-8b94-c1b662e92e4b)
+
+<img width="1401" alt="24" src="https://github.com/user-attachments/assets/111579a1-d14f-401a-a461-038e5b69074b">
 
 
 - Similarly include DRC line  for the npres as above: 
@@ -403,17 +425,17 @@ spacing npres allpolynonres 480 touching_illegal \
 ``` 
 - We can observe the increase in the DRC count which indicates that the DRC rules are correctly implemented. 
 DRC ERROR COUNT = 45
+<img width="1309" alt="25" src="https://github.com/user-attachments/assets/da0ca606-cccc-4951-bc34-157f46e14ed9">
 
-<img width="468" alt="Picture25" src="https://github.com/user-attachments/assets/36824349-6e2e-4e0f-8197-28a70d60352e">
+
 
 - DRC Next Error for n well used in FEOL   
 - Make the following changes in the changes in the DRC tests.
 
-![Picture26](https://github.com/user-attachments/assets/283822c3-b472-45c9-8d57-8385b1a0ca43)
-![Picture27 ](https://github.com/user-attachments/assets/7ac7f5a5-f0bb-43ca-bbaa-4ba32dd65294)
-![Picture28](https://github.com/user-attachments/assets/2408db53-6ddc-46f2-8302-919fbc7476b9)
-
-Drc Errors solved 
+<img width="1396" alt="28" src="https://github.com/user-attachments/assets/50217fac-a445-47f4-8dc1-f102e61ea5bc">
+#### Drc Errors solved 
+<img width="1309" alt="26" src="https://github.com/user-attachments/assets/52dfc10c-884a-4d7c-9ebf-81a3cfd780fb">
+<img width="1396" alt="27" src="https://github.com/user-attachments/assets/486ffa1b-de5e-400d-b6ee-f9d6200314c3">
 
 ## Day 4: Timing Analysis and Clock Tree Synthesis (CTS)
 
@@ -423,6 +445,7 @@ Tracks and Trunks: The horizontals and vertical lines or paths on which a metal 
 ``` bash 
 grid 0.46um 0.34um 0.23um 0.17um
 ```
+<img width="1424" alt="30" src="https://github.com/user-attachments/assets/cb0fd41f-0c66-42dc-a11f-5813adc8450d">
 
 Port Creation: 
 - Select Ports for LEF :
@@ -445,28 +468,46 @@ This generates sky130_vsdinv.lef file
 
 Make sure you have all the required files (.lib, .lef, .v files) like below
 
+![imp_run 1 ](https://github.com/user-attachments/assets/f7156fb6-fde6-4bb3-9689-f9bf61edc654)
+
+
 Lef file: 
+
+![im-Run_2](https://github.com/user-attachments/assets/92d4506d-62af-41a9-9abf-9601514d1706)
+
 
 ### Steps to include custom cell to the existing design
 Modify the existing tcl file to 
+
+<img width="1403" alt="modified tcl" src="https://github.com/user-attachments/assets/e5ca39f7-82e3-4d84-9aab-0b710afc20d8">
+
 Use the following commands in the openlane interactive mode 
 ``` bash 
 prep -design picorv32a -tag RUN_2024.05.21_05.21.00 -overwrite 
 set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
 add_lefs -src $lefs
 run_synthesis
-``` 
+```
+#### After Running synthesis
+
+<img width="1184" alt="imp_run 3" src="https://github.com/user-attachments/assets/8bb2bed5-6162-4d56-8985-986edb5d43ff">
 
 
-After Running synthesis
-STA log 
+#### STA log 
+<img width="1071" alt="STA log" src="https://github.com/user-attachments/assets/94dfd938-ca26-482e-bd35-9f111d3e5703">
+
 Run_floorplan : If error occurs use step by step approach instead of run_floorplan
 ``` bash 
 % init_floorplan
 % place_io
-% tap_decap_or 
-``` 
-### Delay Tables Key concepts
+% tap_decap_or
+```
+
+
+### Delay Tables Key concepts 
+
+![power aware CTS ](https://github.com/user-attachments/assets/744d064e-558f-40cd-8659-202fc904c6ac)
+
 - In CTS, Using H tree Algorithm Repeaters/buffers are used to make that the skew is minimized.
 - Delay of cells mostly depends on input transition and output load. 
 - During CTS, different input slew and output load are organized in a delay table with different buffer sizes. 
@@ -476,31 +517,56 @@ Placement after sky130_vsdinv
 ``` bash 
 % run_placement
 % magic -T sky130A.tech lef read ../../tmp/merged.nom.lef def read results/floorplan/picorv32a.def &
-``` 
+```
+<img width="1320" alt="After placement" src="https://github.com/user-attachments/assets/4718520a-9e27-474b-8662-487ee8fec417">
+
 The above placement consists of 145 sky130_vsdinv cells.
 
 ### Static Timing Analysis Key Concepts: 
 -	Setup Time: Minimum amount of time required for the data to be stable before the active edge of the clock to get properly captured. 
 - Setup slack: Data Required Time - Data Arrival Time
-- Setup Analysis with Idea Clock: 
+- Setup Analysis with Idea Clock:
+  ![Picture39 ](https://github.com/user-attachments/assets/b831b368-7d3f-43e2-a704-524e942ed7dd)
+![Picture 40 png](https://github.com/user-attachments/assets/5568226c-dfe2-4173-8071-99c87fb8c066)
+
+
 - Library Setup time (S) : Time it takes for MUX 1 to pass to the center of the capture flop.
 - Setup Uncertainity (SU) : This occurs due to Clock Jitter (Clock may arrive a bit late/early)
+  
 - Hold time: Minimum amount of time required for the data to be stable after the active edge of the clock to get properly captured. It takes time for capture flop to send data from center of the flip flop through MUX 2 to the next cell/flop.
 - Hold slack: Data Arrival  Time - Data Required Time
--  Hold Timing Analysis with Ideal Clocks: 
+-  Hold Timing Analysis with Ideal Clocks:
+![Picture41 ](https://github.com/user-attachments/assets/89a50334-256b-4833-8a48-ccc8dfed65d7)
+
+
 
 ### Lab exercise: OpenSTA software 
 ``` bash 
 sta pre_sta.conf 
 ``` 
 - For this, pre_sta.conf is required to carry out the STA analysis. 
-- Invoke OpenSTA outside the openLANE flow as follows, 
+- Invoke OpenSTA outside the openLANE flow as follows,
+- Initial Slack Violation:
+
+  <img width="1368" alt="Initial Slack Violation" src="https://github.com/user-attachments/assets/834acaed-afd3-457c-ad9a-7098d16af180">
+  
 Slack Violation after many attempts of changing  cells and strategies :
+  
 - Attempt 1: SLACK MET
-- Attempt 2: Slack MET 
+
+  <img width="1360" alt="Slack Met" src="https://github.com/user-attachments/assets/e2d311db-6fb6-410f-a0cb-483994e515fc">
+
+- Attempt 2: Slack MET
+  <img width="1360" alt="SLack Met 2" src="https://github.com/user-attachments/assets/0031b41d-7891-4841-b644-6bf1711d5d63">
+
 ### Clock Tree Synthesis:
-- Setup Timing Analysis with Real Clocks (Buffers are added and Clock skew is introduced): 
-- 	Hold Time Analysis with Real Clocks (Buffers are added and Clock skew is introduced): 
+- Setup Timing Analysis with Real Clocks (Buffers are added and Clock skew is introduced):
+  ![Picture44 png](https://github.com/user-attachments/assets/2454fb2a-d223-4644-8fc5-abe05c7362fb)
+
+- 	Hold Time Analysis with Real Clocks (Buffers are added and Clock skew is introduced):
+
+<img width="1084" alt="HT RC" src="https://github.com/user-attachments/assets/8e8248d0-adf4-4f42-86a8-e8c7ff2b201e">
+
 Clock Tree Synthesis Key Concepts: 
 
 -	CTS is an important step that ensures that all the cells reaches the clock at almost same time.
@@ -512,6 +578,8 @@ CTS RUN:
 ``` bash 
 run_cts 
 ```
+<img width="1365" alt="run_cts" src="https://github.com/user-attachments/assets/e51ab862-9afe-4317-834f-8fed813f0e5f">
+
 - Use Openroad software and the following commands to meet the timing constraints
 ``` bash 
 openroad
@@ -526,7 +594,12 @@ set_propagated_clock (all_clocks)
 report_checks -path_delay min_max -format full_clock_expanded -digits 4
 ``` 
 Hold Slack MET:
+<img width="1379" alt="Hold slack met" src="https://github.com/user-attachments/assets/f6b50d14-758f-424a-83ff-66236a38f020">
+
+
 Setup Slack Met: 
+<img width="1379" alt="Setup slack met" src="https://github.com/user-attachments/assets/e4036a96-0418-44f7-bc34-473f5c2213a6">
+
 
 ## Day 5: Final steps for RTL 2 GDSII using TritonRoute
 ### Routing Key Concepts: 
@@ -545,14 +618,22 @@ Output : Detailed routing solution with optimized wire length and via count ( ob
 ``` bash
 run_routing 
  ```
+<img width="1379" alt="Run_routing" src="https://github.com/user-attachments/assets/7c8a0c20-e119-4f86-857b-efc838ec4539">
+
 The Wire length is 1712160980 
-Layout After Routing 
+
 ``` bash 
 magic -T  sky130A.tech lef read ../../tmp/merged.nom.lef def read results/routing/picorv32a.def &
 ```
+Layout After Routing 
 
 
-Summary of Entire Flow:
+<img width="1407" alt="magic routing" src="https://github.com/user-attachments/assets/3283ba97-f78a-4482-b931-808fb331a9a5">
+
+
+Summary of Entire Flow: 
+
+![FLow ](https://github.com/user-attachments/assets/ba7ab1fc-6f2f-4f0e-92fe-ff9c1458435a)
 
  
 ##  Acknowledgements

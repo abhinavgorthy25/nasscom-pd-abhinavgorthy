@@ -1,18 +1,20 @@
 
 # NASSCOM Digital VLSI SoC Design and Planning 
 
+
 I discovered this workshop on LinkedIn through Kunal Ghosh. It’s a two-week course on Digital SoC and Physical Design using Open Lane, a platform that employs open-source tools to create digital designs from RTL to GDSII. The workshop utilizes the SkyWater 130 open-source PDK.
 
 ## Aim of the Workshop 
 The workshop focuses on the physical design of a macro CPU core called picorv32a, which is part of the VSD Squadron ICs developed by VLSI System Design (VSD). This development board, based on the RISC-V architecture, is similar to Arduino Uno boards and is suitable for applications in home automation, IoT, and more.
 
-### Image of VSDSQUADRON Mini (Source : VLSI System Design)
+### Image of VSDSQUADRON Mini (Source: VLSI System Design)
 
 ![App Screenshot](Sythesis Run 2.png)
+
 
 ### Overview of Chip Making 
 
-![App Screenshot](Sythesis Run 2.png)
+
 
 ### Agenda of the workshop 
 
@@ -250,22 +252,22 @@ magic -T ./libs/sky130A.tech sky130_inv.mag &
 ``` 
 
 CMOS is called as Complementary Metal Oxide semiconductor, and it is most widely used technology in digital ICs and it is fabricated using 16 steps.
-- 1.  Substrate Preparation
-- 2. N-Well Formation
-- 3. P-Well Formation
-- 4. Gate Oxide Deposition
-- 5. Poly-Silicon Deposition
-- 6. Poly-Silicon Masking and Etching
-- 7. N-Well Masking and Implantation
-- 8. P-Well Masking and Implantation
-- 9. Source/Drain Implantation
-- 10. Gate Formation
-- 11. Source/Drain Masking and Etching
-- 12. Contact/Via Formation
-- 13. Metal Deposition
-- 14. Metal Masking and Etching
-- 15. Passivation Layer Deposition
-- 16. Final Testing and Packaging
+-  Substrate Preparation
+-  N-Well Formation
+-  P-Well Formation
+-  Gate Oxide Deposition
+-  Poly-Silicon Deposition
+-  Poly-Silicon Masking and Etching
+-  N-Well Masking and Implantation
+- P-Well Masking and Implantation
+- Source/Drain Implantation
+- Gate Formation
+- Source/Drain Masking and Etching
+- Contact/Via Formation
+- Metal Deposition
+- Metal Masking and Etching
+- Passivation Layer Deposition
+- Final Testing and Packaging
 Generation of Spice Model from Magic Layout 
 It includes design rules (tech LEF) and abstract information about the cells.
 Layout Designer converts the layout to LEF format to avoid the disclosure of logic inside the standard cell and make is easy for the physical design engineers.

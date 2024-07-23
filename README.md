@@ -150,18 +150,18 @@ vim picorv32a.v
 - Core Area: Main area where standard cells, macros/IPs are placed. 
 - 	Core Utilization Factor: (Area Occupied by Netlist / Total Area of the core)
 - Aspect Ratio: Height/ Width of the Core.
- Defining locations of Pre-placed Cells
+####  Defining locations of Pre-placed Cells
  -  The pre-placed cells are typically IPs that have defined before automated PnR (Place and Route)
 - 	Circuit Bipartitioning occurs and organized into blocks/modules and placed along with the pre-placed cells. 
--  Surround the pre-placed cells with decoupling capacitors.
+  ####  Surround the pre-placed cells with decoupling capacitors.
 - Decoupling capacitors are large capacitors that store electrical charge They act as reservoirs can send same voltage as power supply to the circuit for a period. 
 - Some pre-placed cells reside far away from the Power supply and toa void  IR drop De Caps are used. 
-Power Planning: 
+#### Power Planning: 
 
 -	Its aim is to supply power evenly to all the circuits and the plan the distribution of power and ground connections to ensure proper functionality and performance of the chip. 
 -  Due to the internal parasitics, hazards (Harmful Glitches) like voltage droop and ground bounce occurs when there are variations in the voltage levels of different GND points due to transient currents. 
 - Mesh Distribution Startegy is usually preferred in power planning.
-Pin Placement :
+##### Pin Placement :
 - Proper Pins must be allocated according to the floor planning in such a way that the input and output signals are strong with equal power distribution to all the cells along with standard packaging aspects.
 - Create a blockage ring in between the core and IO pads to avoid crosstalk.
  Placement

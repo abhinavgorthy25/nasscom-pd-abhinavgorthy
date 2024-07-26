@@ -436,7 +436,8 @@ DRC ERROR COUNT = 45
 - Make the following changes in the changes in the DRC tests.
 
 <img width="1396" alt="28" src="https://github.com/user-attachments/assets/50217fac-a445-47f4-8dc1-f102e61ea5bc">
-#### Drc Errors solved 
+
+####  Drc Errors solved 
 <img width="1309" alt="26" src="https://github.com/user-attachments/assets/52dfc10c-884a-4d7c-9ebf-81a3cfd780fb">
 <img width="1396" alt="27" src="https://github.com/user-attachments/assets/486ffa1b-de5e-400d-b6ee-f9d6200314c3">
 
@@ -488,7 +489,7 @@ Modify the existing tcl file to
 
 Use the following commands in the openlane interactive mode 
 ``` bash 
-prep -design picorv32a -tag RUN_2024.05.21_05.21.00 -overwrite 
+prep -design picorv32a -tag RUN_number -overwrite 
 set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
 add_lefs -src $lefs
 run_synthesis
@@ -521,9 +522,11 @@ Run_floorplan: If an error occurs use step by step approach instead of run_floor
 Placement after sky130_vsdinv
 ``` bash 
 % run_placement
-% magic -T sky130A.tech lef read ../../tmp/merged.nom.lef def read results/floorplan/picorv32a.def &
+% magic -T sky130A.tech lef read ../../tmp/merged.nom.lef def read results/placement/picorv32a.def &
 ```
 <img width="1320" alt="After placement" src="https://github.com/user-attachments/assets/4718520a-9e27-474b-8662-487ee8fec417">
+<img width="1320" alt="Screenshot 2024-07-26 at 4 03 00 PM" src="https://github.com/user-attachments/assets/64bd5049-43f0-46a3-ac3c-5506fc4d4188">
+
 
 The above placement consists of 145 sky130_vsdinv cells.
 

@@ -656,7 +656,7 @@ I would like to thank Mr. Kunal Ghosh for sharing this workshop and I would like
 
 ## Certificate of Completion
 
-[14_VSD nasscom Workshop Certificate 2024GitHub Repo.pdf](https://github.com/user-attachments/files/16416862/14_VSD.nasscom.Workshop.Certificate.2024GitHub.Repo.pdf)
+![14_VSD nasscom Workshop Certificate 2024GitHub Repo](https://github.com/user-attachments/assets/e96338ce-660d-4374-bcff-224bfe3e9fad)
 
 
 

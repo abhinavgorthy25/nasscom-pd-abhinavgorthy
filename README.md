@@ -109,7 +109,7 @@ https://youtu.be/O19mv1pe76M?feature=shared
 - To install Openlane I followed the instructions mentioned in the git hub repo 
 
 ```bash
-  https://github.com/AnupriyaKrishnamoorthy/NASSCOM-PD-ANU. 
+[https://github.com/AnupriyaKrishnamoorthy/NASSCOM-PD-ANU. ](https://github.com/AnupriyaKrishnamoorthy/NASSCOM-PD-ANU/tree/main)
 ```
 - They mentioned to install the following dependencies and packages along with the PDKS listed below:
 ``` bash 
